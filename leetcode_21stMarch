@@ -55,3 +55,21 @@ class Solution {
 		return count;
    }
 }
+
+// approach 2: count the 0-filled subarrays upto that index
+// using 2 pointers
+class Solution {
+    public long zeroFilledSubarray(int[] nums) {
+        // for every index find the count upto that index
+        long count = 0;
+        long subArrays = 0;
+        for (int n : nums)  {
+            if (n == 0)  // if n is 0, increase the subarrays count
+                subArrays++;
+            else           // else reset to 0
+                subArrays = 0; 
+            count += subArrays; // keep adding at every set
+        }
+        return count;
+    }
+}
